@@ -10,9 +10,9 @@ createEvent.post('/', async( req: Request, res: Response) => {
         eventStartHour,
         eventAddress,
         eventDescription,
-        eventCEP,
         eventParentalRating,
-        eventPrice
+        eventPrice,
+        eventBatch
     } = req.body;
     const events = {
         eventName,
@@ -20,9 +20,9 @@ createEvent.post('/', async( req: Request, res: Response) => {
         eventStartHour,
         eventAddress,
         eventDescription,
-        eventCEP,
         eventParentalRating,
-        eventPrice
+        eventPrice,
+        eventBatch
     };
 
     if(!eventName) {
@@ -47,8 +47,8 @@ createEvent.post('/', async( req: Request, res: Response) => {
         res.status(400).json({ error: 'A descrição do evento é obrigatória' })
     }
 
-    if(!eventCEP){
-        res.status(400).json({ error: 'O CEP do evento é obrigatório' })
+    if(!eventBatch){
+        res.status(400).json({ error: 'É necessário informar qual lote o evento se encontra para compra' })
     }
 
     if(!eventParentalRating){
