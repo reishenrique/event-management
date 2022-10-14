@@ -1,4 +1,4 @@
-import { Response, Request, Router, request} from 'express';
+import { Response, Request, Router} from 'express';
 import { Event } from '../models/Event'
 
 const createEvent = Router()
