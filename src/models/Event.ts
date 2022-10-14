@@ -6,9 +6,9 @@ interface IEvent {
   eventStartHour: number;
   eventAddress: string;
   eventDescription: string;
-  eventCEP: number;
   eventParentalRating: number;
   eventPrice: number;
+  eventBatch: number;
 }
 
 const eventSchema = new Schema<IEvent>({
@@ -17,9 +17,9 @@ const eventSchema = new Schema<IEvent>({
   eventStartHour: { type: Number, required: true },
   eventAddress: { type: String, required: true },
   eventDescription: { type: String, required: true },
-  eventCEP: { type: Number, required: true },
   eventParentalRating: { type: Number, required: true },
-  eventPrice: { type: Number, required: true }
+  eventPrice: { type: Number, required: true },
+  eventBatch: { type: Number, required: true}
 });
 
 const Event = model<IEvent>('Event', eventSchema);
