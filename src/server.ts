@@ -2,15 +2,15 @@ import "dotenv/config";
 import express from "express";
 import mongoose from "mongoose";
 
+import { createEvent } from './routes/createEvent'
+
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get("/", (req, res) => {
-  res.json({ message: "Olá Henrique" });
-});
+app.use('/createEvents', createEvent)
 
 mongoose
   .connect(process.env.DATABASE_CONNECTION as string)
