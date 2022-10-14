@@ -10,7 +10,7 @@ createEvent.post('/', async( req: Request, res: Response) => {
         eventStartHour,
         eventAddress,
         eventDescription,
-        eventDuration,
+        eventCEP,
         eventParentalRating,
         eventPrice
     } = req.body;
@@ -20,7 +20,7 @@ createEvent.post('/', async( req: Request, res: Response) => {
         eventStartHour,
         eventAddress,
         eventDescription,
-        eventDuration,
+        eventCEP,
         eventParentalRating,
         eventPrice
     };
@@ -45,6 +45,10 @@ createEvent.post('/', async( req: Request, res: Response) => {
     
     if(!eventDescription){
         res.status(400).json({ error: 'A descrição do evento é obrigatória' })
+    }
+
+    if(!eventCEP){
+        res.status(400).json({ error: 'O CEP do evento é obrigatório' })
     }
 
     if(!eventParentalRating){
