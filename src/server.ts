@@ -3,7 +3,8 @@ import express from 'express';
 import mongoose from 'mongoose';
 
 import { createEvent } from './routes/createEvent'
-import { listEvents } from './routes/listEvent'
+import { listEvents } from './routes/listEvents'
+import { getEvent } from './routes/getEvent'
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -11,9 +12,9 @@ const port = process.env.PORT || 3000;
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.use('/createEvents', createEvent)
+app.use('/createEvent', createEvent)
 app.use('/listEvents', listEvents)
-
+app.use('/getEvent', getEvent)
 
 mongoose
   .connect(process.env.DATABASE_CONNECTION as string)
