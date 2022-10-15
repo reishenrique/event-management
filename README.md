@@ -20,7 +20,9 @@
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [Eslint](https://eslint.org/docs/latest/)
 - [Sucrase](https://www.npmjs.com/package/sucrase)
+
 ---
+
 A aplicação foi construida com *TypeScript* e *NodeJS*, utilizando o *Express*, que trata as requisições e envia as respostas para os endpoints.
 
 *NPM* para fazer o manuseio dos pacotes necessários para o desenvolvimento
@@ -34,6 +36,8 @@ As requisições e testes da API foram feitas pelo *Insomnia*.
 *Nodemon* para o restart da aplicação toda vez que for feita alguma alteração
 
 *Sucrase* como uma alternativa de compilador que permite um desenvolvimento mais produtivo da aplicação.
+
+Com o *Eslint* é possível reaproveitar todos as regras e pacotes, guias de estilos que já eram utilizados no JavaScript puro, no TypeScript
 
 ---
 
