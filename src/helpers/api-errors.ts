@@ -17,3 +17,9 @@ export class InternalServerError extends ApiError {
         super(message, 500)
     }
 }
+
+export class NotFoundError extends ApiError {
+    constructor(message: string) {
+        super(message, 404)
+    }
+}

@@ -1,4 +1,4 @@
-import { BadRequestError, InternalServerError } from './../helpers/api-errors';
+import { BadRequestError } from './../helpers/api-errors';
 import { Response, Request, Router } from 'express';
 import { Event } from '../models/Event'
 
@@ -14,8 +14,6 @@ deleteEvent.delete('/:id', async (req: Request, res: Response) => {
 
     await Event.deleteOne({ _id: id });
     res.status(200).json({ message: 'Evento removido com sucesso' });
-    
-    throw new InternalServerError('Erro interno do servidor')
 });
 
 export { deleteEvent };

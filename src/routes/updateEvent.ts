@@ -1,6 +1,7 @@
-import { BadRequestError, InternalServerError } from './../helpers/api-errors';
+import { BadRequestError } from './../helpers/api-errors';
 import { Request, Response, Router } from 'express';
 import { Event } from '../models/Event'
+import mongoose from 'mongoose'
 
 const updateEvent = Router();
 
@@ -30,7 +31,8 @@ updateEvent.patch('/:id', async (req: Request, res: Response) => {
         eventStatus
     };
 
-    const updatedEvent = await Event.updateOne({ _id: id }, event);
+    const objectId = new mongoose.Types.ObjectId(id);
+    const updatedEvent = await Event.updateOne({ _id: objectId }, event);
     console.log(updatedEvent)
 
     if(updatedEvent.matchedCount === 0) {
@@ -38,7 +40,6 @@ updateEvent.patch('/:id', async (req: Request, res: Response) => {
     }
 
     res.status(200).json(event);
-    throw new InternalServerError('Erro interno do servidor');
 })
 
 export { updateEvent }
