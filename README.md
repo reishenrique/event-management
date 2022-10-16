@@ -46,7 +46,7 @@ Com o *Eslint* é possível reaproveitar todos as regras e pacotes, guias de est
 - /events - GET __(Listagem de todos os eventos disponíveis)__
 - /events/:id - GET __(Listando um único evento através do seu ID único)__
 - /events - PATCH __(Atualizando dados parciais dos eventos)__
-- /events - DELETE __(Removendo um evento da aplicação)__
+- /events/:id - DELETE __(Removendo um evento da aplicação)__
 
 ---
 
