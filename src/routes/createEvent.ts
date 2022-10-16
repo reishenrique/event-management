@@ -1,3 +1,4 @@
+import { BadRequestError } from './../helpers/api-errors';
 import { Response, Request, Router} from 'express';
 import { Event } from '../models/Event'
 
@@ -28,49 +29,43 @@ createEvent.post('/', async( req: Request, res: Response) => {
     };
 
     if(!eventName) {
-        res.status(400).json({ error: 'O nome do evento é obrigatório' })
-        return;
+        throw new BadRequestError('O nome do evento é obrigatório');
     }
 
     if(!eventDate) {
-        res.status(400).json({ error: 'A data do evento é obrigatória' })
-        return;
+        throw new BadRequestError('A data do evento é obrigatória');
     }
 
     if(!eventStartHour) {
-        res.status(400).json({ error: 'A hora que o evento inicia é obrigatória' })
+        throw new BadRequestError('A hora que o evento inicia é obrigatória');
     }
 
     if(!eventAddress){
-        res.status(400).json({ error: 'O endereço do evento é obrigatório' })
+        throw new BadRequestError('O endereço do evento é obrigatório');
     }
     
     if(!eventDescription){
-        res.status(400).json({ error: 'A descrição do evento é obrigatória' })
+        throw new BadRequestError('A descrição do evento é obrigatória');
     }
 
     if(!eventBatch){
-        res.status(400).json({ error: 'É necessário informar qual lote o evento se encontra para compra' })
+        throw new BadRequestError('É necessário informar qual lote o evento se encontra para compra');
     }
 
     if(!eventParentalRating){
-        res.status(400).json({ error: 'A classificação indicativa para o evento é obrigatória'})
+        throw new BadRequestError('A classificação indicativa para o evento é obrigatória');
     }
 
     if(!eventPrice){
-        res.status(400).json({ error: 'É necessário informar o preço da entrada para o evento'})
+        throw new BadRequestError('É necessário informar o preço da entrada para o evento');
     }
 
     if(!eventStatus){
-        res.status(400).json({ error: 'É necessário informar qual o status do evento para o cadastro' })
+        throw new BadRequestError('É necessário informar qual o status do evento para o cadastro');
     }
 
-    try {
-        await Event.create(events);
-        res.status(201).json({ message: 'Evento inserido no sistema com sucesso' })
-    } catch (err) {
-        res.status(500).json({ error: err})
-    }
+    await Event.create(events);
+    res.status(201).json({ message: 'Evento inserido no sistema com sucesso' })
 })
 
 export { createEvent };
