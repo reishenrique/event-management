@@ -3,3 +3,7 @@ dist
 nodemon.json
 .eslintrc.js
 tsconfig.json
+.env
+Dockerfile
+package-lock.json
+package.json
