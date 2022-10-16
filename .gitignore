@@ -1,6 +1,5 @@
-node_modules
+/node_modules
 dist
-tscconfig.json
 nodemon.json
-.env
 .eslintrc.js
+tsconfig.json
