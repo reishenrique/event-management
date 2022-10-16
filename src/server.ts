@@ -1,4 +1,5 @@
 import 'dotenv/config';
+import 'express-async-errors'
 import express from 'express';
 import mongoose from 'mongoose';
 
@@ -7,6 +8,7 @@ import { listEvents } from './routes/listEvents'
 import { getEvent } from './routes/getEvent'
 import { updateEvent } from './routes/updateEvent'
 import { deleteEvent } from './routes/deleteEvent'
+import { errorMiddleware } from './middleware/error';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -19,6 +21,8 @@ app.use('/events', listEvents)
 app.use('/events', getEvent)
 app.use('/events', updateEvent)
 app.use('/events', deleteEvent)
+
+app.use(errorMiddleware)
 
 mongoose
   .connect(process.env.DATABASE_CONNECTION as string)
