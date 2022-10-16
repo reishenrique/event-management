@@ -1,3 +1,4 @@
+import { BadRequestError, InternalServerError } from './../helpers/api-errors';
 import { Request, Response, Router } from 'express';
 import { Event } from '../models/Event'
 
@@ -29,22 +30,15 @@ updateEvent.patch('/:id', async (req: Request, res: Response) => {
         eventStatus
     };
 
-    try {
-        const updatedEvent = await Event.updateOne({ _id: id }, event);
-        console.log(updatedEvent)
+    const updatedEvent = await Event.updateOne({ _id: id }, event);
+    console.log(updatedEvent)
 
-        if(updatedEvent.matchedCount === 0) {
-            res.status(400).json({
-                message: 'O evento não foi encontrado para atualização de dados'
-            })
-
-            return;
-        }
-
-        res.status(200).json(event);
-    } catch (err) {
-        res.status(500).json({ error: err })
+    if(updatedEvent.matchedCount === 0) {
+        throw new BadRequestError('Usuário não foi encontrado para a atualização de dados')
     }
+
+    res.status(200).json(event);
+    throw new InternalServerError('Erro interno do servidor');
 })
 
 export { updateEvent }
