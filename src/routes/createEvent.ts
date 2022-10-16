@@ -12,7 +12,8 @@ createEvent.post('/', async( req: Request, res: Response) => {
         eventDescription,
         eventParentalRating,
         eventPrice,
-        eventBatch
+        eventBatch,
+        eventStatus
     } = req.body;
     const events = {
         eventName,
@@ -22,7 +23,8 @@ createEvent.post('/', async( req: Request, res: Response) => {
         eventDescription,
         eventParentalRating,
         eventPrice,
-        eventBatch
+        eventBatch,
+        eventStatus
     };
 
     if(!eventName) {
@@ -57,6 +59,10 @@ createEvent.post('/', async( req: Request, res: Response) => {
 
     if(!eventPrice){
         res.status(400).json({ error: 'É necessário informar o preço da entrada para o evento'})
+    }
+
+    if(!eventStatus){
+        res.status(400).json({ error: 'É necessário informar qual o status do evento para o cadastro' })
     }
 
     try {
