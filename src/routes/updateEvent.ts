@@ -13,7 +13,8 @@ updateEvent.patch('/:id', async (req: Request, res: Response) => {
         eventDescription,
         eventParentalRating,
         eventPrice,
-        eventBatch
+        eventBatch,
+        eventStatus
     } = req.body;
 
     const event = {
@@ -24,7 +25,8 @@ updateEvent.patch('/:id', async (req: Request, res: Response) => {
         eventDescription,
         eventParentalRating,
         eventPrice,
-        eventBatch
+        eventBatch,
+        eventStatus
     };
 
     try {
