@@ -53,3 +53,17 @@ Com o *Eslint* é possível reaproveitar todos as regras e pacotes, guias de est
 ### Comando para iniciar o servidor
 - Desenvolvimento: ``` npm run dev ```
 - Produção: ``` npm run build ```
+- Docker: ```npm run build-image```
+
+---
+
+### Observações e próximos passos
+- O container está buildado, porém como o MongoDB é uma dependência local da minha aplicação, ele só rodará caso a máquina local do outro dev tenha o MongoDB localmente também. Mas o arquivo Dockerfile está configurado e funcional
+
+- Seria interessante implementação de autenticação nessa aplicação futuramente
+
+- O tratamento de erros foi utilizando um middleware seguindo a documentação do próprio Express, também tentei uma outra forma de tratar os erros que podem acontecer ao invés do try/catch
+
+---
+
+### Espero que tenham gostado! Foi feito com muito estudo e dedicação. :)
