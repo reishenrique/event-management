@@ -1,12 +1,7 @@
-## Mb-Events (Gestão de eventos)
----
+## Event Management
+
 ### Objetivos do projeto
-- Criar um evento
-- Inserir todos os dados necessários para cadastrar um novo evento
-- Listar todos os eventos disponíveis na aplicação
-- Listar um único evento pesquisando pelo ID da mesma
-- Atualização parcial de dados dos eventos 
-- Remoção de um evento
+- Criar uma aplicação de fácil manuseio para a criação, remoção e update de informações para eventos 
 
 ### Ferramentas Utilizadas
 - [NodeJS](https://nodejs.org/en/docs/)
@@ -50,7 +45,7 @@ Com o *Eslint* é possível reaproveitar todos as regras e pacotes, guias de est
 
 ---
 
-### Comando para iniciar o servidor
+### Iniciando servidor
 - Desenvolvimento: ``` npm run dev ```
 - Produção: ``` npm run build ```
 - Docker: ```npm run build-image```
@@ -58,12 +53,10 @@ Com o *Eslint* é possível reaproveitar todos as regras e pacotes, guias de est
 ---
 
 ### Observações e próximos passos
-- O container está buildado, porém como o MongoDB é uma dependência local da minha aplicação, ele só rodará caso a máquina local do outro dev tenha o MongoDB localmente também. Mas o arquivo Dockerfile está configurado e funcional
+- [OBS] O container está buildado, porém como o MongoDB é uma dependência local da minha aplicação, ele só rodará caso a máquina local do outro dev tenha o MongoDB localmente também. Mas o arquivo Dockerfile está configurado e funcional
 
-- Seria interessante implementação de autenticação nessa aplicação futuramente
+- [Next Step] Autenticação e sistema de login para usuários
 
-- O tratamento de erros foi utilizando um middleware seguindo a documentação do próprio Express, também tentei uma outra forma de tratar os erros que podem acontecer ao invés do try/catch
 
----
 
-### Espero que tenham gostado! Foi feito com muito estudo e dedicação. :)
+
