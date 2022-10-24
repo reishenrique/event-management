@@ -12,7 +12,7 @@ interface IEvent {
   eventStatus: string;
 }
 
-const eventSchema = new Schema<IEvent>({
+const eventSchema = new Schema<IEvent> ({
   eventName: { type: String, required: true },
   eventDate: { type: String, required: true },
   eventStartHour: { type: Number, required: true },
