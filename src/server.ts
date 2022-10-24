@@ -8,6 +8,8 @@ import { listEvents } from './routes/listEvents'
 import { getEvent } from './routes/getEvent'
 import { updateEvent } from './routes/updateEvent'
 import { deleteEvent } from './routes/deleteEvent'
+import { userCreate } from './controller/UserController';
+
 import { errorMiddleware } from './middleware/error';
 
 const app = express();
@@ -21,6 +23,7 @@ app.use('/events', listEvents)
 app.use('/events', getEvent)
 app.use('/events', updateEvent)
 app.use('/events', deleteEvent)
+app.use('/users', userCreate) 
 
 app.use(errorMiddleware)
 
