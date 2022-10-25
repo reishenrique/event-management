@@ -16,12 +16,8 @@ userCreate.post('/', async (req: Request, res: Response) => {
         throw new BadRequestError('Email já cadastrado')
     }
 
-    console.log("Chegou aqui")
-
     await User.create(users);
     res.status(201).json({ message: 'Usuário inserido no sistema com sucesso' })
 })
 
 export { userCreate }
-
-// Arquivo responsavel pelos controladores de cadastro, login e tudo que precisar fazer para os usuários
