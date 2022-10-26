@@ -10,6 +10,7 @@ import { updateEvent } from './routes/updateEvent'
 import { deleteEvent } from './routes/deleteEvent'
 import { userCreate } from './controller/UserController';
 import { loginUser } from './controller/LoginController';
+import { getProfile } from './controller/GetProfile';
 
 import { errorMiddleware } from './middleware/error';
 
@@ -27,6 +28,7 @@ app.use('/events', deleteEvent)
 
 app.use('/users', userCreate) 
 app.use('/login', loginUser)
+app.use('/profile', getProfile)
 
 app.use(errorMiddleware)
 
