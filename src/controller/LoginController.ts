@@ -16,18 +16,20 @@ loginUser.post('/', async (req: Request, res: Response) => {
         throw new BadRequestError('E-mail ou senha inválidos')
     }
 
-    const verifyPass = await bcrypt.compare(password, user.password)
-    if(!verifyPass) {
-        throw new BadRequestError('Email ou senha inválidos')
+    const verifyPassword = await bcrypt.compare(password, user.password)
+    if(!verifyPassword) {
+        throw new BadRequestError('E-mail ou senha inválidos')
     }
 
-    const token = jwt.sign({ id: user.id}, process.env.JWT_PASS ?? '', { 
+    const token = jwt.sign({ id: user.id}, process.env.JWT_PASSWORD ?? '', { 
         expiresIn: '8h'
     })
 
-    //const { password:_, ...userLogin} = user
-
-    res.status(200).json({ user: user, token: token })
+    return res.status(200).json({ 
+        user: user.email, 
+        token: token, 
+        message: 'Usuário logado com sucesso'
+    })
 })
 
 export { loginUser }
