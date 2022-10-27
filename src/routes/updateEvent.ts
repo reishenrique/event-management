@@ -31,8 +31,7 @@ updateEvent.patch('/:id', async (req: Request, res: Response) => {
         eventStatus
     };
 
-    const objectId = new mongoose.Types.ObjectId(id);
-    const updatedEvent = await Event.updateOne({ _id: objectId }, event);
+    const updatedEvent = await Event.updateOne({ _id: id }, event);
     console.log(updatedEvent)
 
     if(updatedEvent.matchedCount === 0) {
