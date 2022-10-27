@@ -19,13 +19,13 @@ getProfile.get('/', async (req: Request, res: Response) => {
     const token = authorization.split(' ')[1]
     const { id } = jwt.verify(token, process.env.JWT_PASSWORD ?? '') as JwtPayload
 
-    const user = await User.findOne({ id })
+    const userId = await User.findOne({ _id: id })
 
-    if(!user) {
+    if(!userId) {
         throw new UnauthorizedError('Não autorizado')
     }
 
-    const { name, email } = user
+    const { name, email } = userId
 
     return res.status(200).json({name, email, id})
 })
