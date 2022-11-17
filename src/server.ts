@@ -3,16 +3,17 @@ import 'express-async-errors'
 import express from 'express';
 import mongoose from 'mongoose';
 
-import { createEvent } from './routes/createEvent'
-import { listEvents } from './routes/listEvents'
-import { getEvent } from './routes/getEvent'
-import { updateEvent } from './routes/updateEvent'
-import { deleteEvent } from './routes/deleteEvent'
-import { userCreate } from './controller/UserController';
-import { loginUser } from './controller/LoginController';
-import { getProfile } from './controller/GetProfile';
+import { createEvent } from './controller/events/CreateEvent'
+import { listEvents } from './controller/events/ListEvents'
+import { getEvent } from './controller/events/GetEvent'
+import { updateEvent } from './controller/events/UpdateEvent'
+import { deleteEvent } from './controller/events/DeleteEvent'
+import { userCreate } from './controller/users/UserController';
+import { loginUser } from './controller/users/LoginController';
+import { getProfile } from './controller/users/GetProfile';
 
 import { errorMiddleware } from './middleware/error';
+import { authMiddleware } from './middleware/authMiddleware';
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -28,7 +29,7 @@ app.use('/events', deleteEvent)
 
 app.use('/users', userCreate) 
 app.use('/login', loginUser)
-app.use('/profile', getProfile)
+app.use('/profile', authMiddleware, getProfile)
 
 app.use(errorMiddleware)
 
