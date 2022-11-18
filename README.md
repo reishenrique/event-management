@@ -1,10 +1,10 @@
-## Event Management
+## __Event Management__
 
-### Objetivos do projeto
+### __Objetivos do projeto__
 - Criar uma aplicação de fácil manuseio para a criação, remoção e update de informações para eventos
 - Login de usuários
 
-### Ferramentas Utilizadas
+### __Ferramentas Utilizadas__
 - [NodeJS](https://nodejs.org/en/docs/) - Runtime JavaScript
 - [NPM](https://docs.npmjs.com/) - Node Package Manager
 - [Express](https://expressjs.com/pt-br/starter/installing.html) - Trata as requisições e envia as respostas para os endpoints
@@ -18,33 +18,33 @@
 - [Bcrypt](https://www.npmjs.com/package/bcrypt) - Criptografia de dados sensíveis
 - [JWT](https://jwt.io/) - Padrão de autenticação e troca de informações
 
-### Rotas disponíveis para o manuseio de eventos
+### __Rotas disponíveis para o manuseio de eventos__
+
 - /events - POST __(Criação de novos eventos)__
 - /events - GET __(Listagem de todos os eventos disponíveis)__
 - /events/:id - GET __(Listando um único evento através do seu ID único)__
 - /events - PATCH __(Atualizando dados parciais dos eventos)__
 - /events/:id - DELETE __(Removendo um evento da aplicação)__
 
-### Rotas disponíveis para o manuseio de usuários
+### __Rotas disponíveis para o manuseio de usuários__
+
 - /users - POST __(Criação de novos usuários)__ 
 - /login - POST __(Logando o usuário na aplicação)__
 - /profile - GET __(Listando as informações do usuário através do token gerado no login)__
 
 ---
 
-### Iniciando servidor
+### __Iniciando servidor__
 - Desenvolvimento: ``` npm run dev ```
 - Produção: ``` npm run build ```
 - Docker: ```npm run build-image```
 
 ---
 
-### Work in Progress
-1. Login de usuários
-2. Autenticação JWT
+### __Work in Progress__ 
+- [X] Login de usuários 
+- [X] Autenticação JWT
+- [ ] Retornar o middleware de autenticação no controller GetProfile
 
-
-
-
-### Observações
+### __Observações__
 - [OBS] O container está buildado, porém como o MongoDB é uma dependência local da minha aplicação, ele só rodará caso a máquina local do outro dev tenha o MongoDB localmente também. Mas o arquivo Dockerfile está configurado e funcional
