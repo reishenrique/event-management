@@ -3,14 +3,14 @@ import 'express-async-errors'
 import express from 'express';
 import mongoose from 'mongoose';
 
-import { createEvent } from './controller/events/CreateEvent'
-import { listEvents } from './controller/events/ListEvents'
-import { getEvent } from './controller/events/GetEvent'
-import { updateEvent } from './controller/events/UpdateEvent'
-import { deleteEvent } from './controller/events/DeleteEvent'
-import { userCreate } from './controller/users/UserController';
-import { loginUser } from './controller/users/LoginController';
-import { getProfile } from './controller/users/GetProfile';
+import { createEvent } from './controller/event/CreateEvent'
+import { listEvents } from './controller/event/ListEvents'
+import { getEvent } from './controller/event/GetEvent'
+import { updateEvent } from './controller/event/UpdateEvent'
+import { deleteEvent } from './controller/event/DeleteEvent'
+import { userCreate } from './controller/user/UserController';
+import { loginUser } from './controller/user/LoginController';
+import { getProfile } from './controller/user/GetProfile';
 
 import { errorMiddleware } from './middleware/error';
 import { authMiddleware } from './middleware/authMiddleware';
