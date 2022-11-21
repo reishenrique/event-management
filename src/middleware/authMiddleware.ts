@@ -8,7 +8,7 @@ type JwtPayload = {
     id: string
 }
 
-export const authMiddleware = async (req: Request, res: Response, _next: NextFunction) => {
+export const authMiddleware = async (req: Request, res: Response, next: NextFunction) => {
     const { authorization } = req.headers;
     if(!authorization) {
         throw new UnauthorizedError('Não autorizado');
@@ -26,5 +26,9 @@ export const authMiddleware = async (req: Request, res: Response, _next: NextFun
 
     const { name, email } = userId;
 
-    return res.status(200).json({ name, email, id });
+    req.user = { email, name, id };
+
+    //return res.status(200).json({ name, email, id });
+
+    next()
 }
