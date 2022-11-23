@@ -2,7 +2,7 @@
 
 ### __Objetivos do projeto__
 - Criar uma aplicação de fácil manuseio para a criação, remoção e update de informações para eventos
-- Login de usuários
+- Login de usuários e autenticação 
 
 ### __Ferramentas Utilizadas__
 - [NodeJS](https://nodejs.org/en/docs/) - Runtime JavaScript
